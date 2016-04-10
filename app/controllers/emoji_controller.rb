@@ -7,7 +7,8 @@ class EmojiController < ApplicationController
              :char => @model.char_dec,
              :dec_val => @model.decimal,
              :hex_val => @model.hex,
-             :name => @model.name
+             :name => @model.name,
+             :code_point => "https://codepoints.net/U+#{@model.hex}"
         }
         render :json => response.to_json
     end
@@ -20,7 +21,8 @@ class EmojiController < ApplicationController
                 :char => model.char_dec,
                 :dec_val => model.decimal,
                 :hex_val => model.hex,
-                :name => model.name
+                :name => model.name,
+                :code_point => "https://codepoints.net/U+#{model.hex}"
             }
         end
         response.to_json
