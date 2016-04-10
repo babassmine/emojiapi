@@ -55,4 +55,6 @@ Rails.application.routes.draw do
   #   end
 
   get 'emoji/:id' => 'emoji#emoji'
+
+  get 'all' =>  'emoji#all'
 end
