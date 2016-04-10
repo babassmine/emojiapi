@@ -28,4 +28,5 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  database: db/emojiapi_db_prod
+  database: emojiapi_db_prod
+  pool: 5
