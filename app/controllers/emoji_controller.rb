@@ -24,7 +24,7 @@ class EmojiController < ApplicationController
     end
 
     def search
-        search_term = params[:q]
+        search_term = params[:q].upcase
         query = "name LIKE '%#{search_term}%'"
         response = build_list Emoji.where(query)
         render :json => response.to_json
