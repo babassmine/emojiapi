@@ -1,0 +1,6 @@
+Mon, 11 Apr 2016 00:35:19 -0400
+README.rdoc	Mon, 11 Apr 2016 00:33:59 -0400
+app/controllers/application_controller.rb	Sun, 10 Apr 2016 12:27:51 -0400
+app/controllers/emoji_controller.rb	Mon, 11 Apr 2016 00:31:58 -0400
+app/helpers/application_helper.rb	Sun, 10 Apr 2016 12:27:51 -0400
+app/models/emoji.rb	Sun, 10 Apr 2016 12:50:01 -0400
