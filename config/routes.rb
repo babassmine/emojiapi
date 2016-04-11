@@ -54,7 +54,9 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get 'emoji/:id' => 'emoji#emoji'
+  get 'emoji/:id' =>  'emoji#emoji'
 
-  get 'all' =>  'emoji#all'
+  get 'all'       =>  'emoji#all'
+
+  get 'search'    =>  'emoji#search'
 end

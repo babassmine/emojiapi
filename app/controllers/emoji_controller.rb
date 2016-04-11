@@ -19,22 +19,14 @@ class EmojiController < ApplicationController
     end
 
     def all
-        response = []
-        Emoji.all.each do |emoji|
-            response << {
-                :id => emoji.id,
-                :char => emoji.char_dec,
-                :dec_val => emoji.decimal,
-                :hex_val => emoji.hex,
-                :name => emoji.name,
-                :code_point => "https://codepoints.net/U+#{emoji.hex}",
-                :ruby => "\\u{#{emoji.hex}}",
-                :python => "\\U#{emoji.hex}",
-                :c => "\\U#{emoji.hex}",
-                :css => "\\0#{emoji.hex}"
-            }
-        end
-        response.to_json
+        response = build_list Emoji.all
+        render :json => response.to_json
+    end
+
+    def search
+        search_term = params[:q]
+        query = "name LIKE '%#{search_term}%'"
+        response = build_list Emoji.where(query)
         render :json => response.to_json
     end
 
@@ -49,5 +41,24 @@ class EmojiController < ApplicationController
             hex = '0' + hex
         end
         hex
+    end
+
+    def build_list emojis
+        response = []
+        emojis.each do |emoji|
+            response << {
+                :id => emoji.id,
+                :char => emoji.char_dec,
+                :dec_val => emoji.decimal,
+                :hex_val => emoji.hex,
+                :name => emoji.name,
+                :code_point => "https://codepoints.net/U+#{emoji.hex}",
+                :ruby => "\\u{#{emoji.hex}}",
+                :python => "\\U#{emoji.hex}",
+                :c => "\\U#{emoji.hex}",
+                :css => "\\0#{emoji.hex}"
+            }
+        end
+        response
     end
 end
