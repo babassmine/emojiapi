@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410164816) do
+ActiveRecord::Schema.define(version: 20160412004211) do
 
   create_table "emojis", force: :cascade do |t|
     t.string  "char_dec", limit: 255
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(version: 20160410164816) do
     t.string  "char_hex", limit: 255
     t.string  "hex",      limit: 255
     t.string  "name",     limit: 255
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "emoji_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "taggings", ["emoji_id"], name: "index_taggings_on_emoji_id"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
   end
 
 end
