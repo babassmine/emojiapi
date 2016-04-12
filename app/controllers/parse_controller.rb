@@ -19,7 +19,7 @@ class ParseController < ApplicationController
     end
     render :json => {
       converted: response.join(' '),
-      original: sentence
+      original: sentence.join(' ')
      }.to_json
   end
 
