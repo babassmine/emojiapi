@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'parse'    =>  'parse#word'
+  get 'parse'       =>  'parse#word'
+
+  post 'parse'      =>  'parse#word'
 
   get 'emoji/:id'   =>  'emoji#emoji'
 
