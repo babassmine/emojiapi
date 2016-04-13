@@ -25,6 +25,13 @@ class ParseController < ApplicationController
   end
 
   private
+  def phrase_parser
+
+  end
+
+  def word_parser
+
+  end
 
   def is_plural? word
     if word == word.pluralize
